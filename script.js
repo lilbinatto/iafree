@@ -60,12 +60,19 @@ function init() {
     openEntryModal();
     // Close on X
     el.entryModalClose.addEventListener('click', closeEntryModal);
-    // Close when clicking outside the modal content
+    // Prevent clicks inside modal from bubbling to overlay
+    if (el.entryModalDialog){
+      el.entryModalDialog.addEventListener('click', (e) => e.stopPropagation());
+    }
+    // Close when clicking on overlay background only
     el.entryModal.addEventListener('click', (e) => {
-      if (!el.entryModalDialog || !el.entryModalDialog.contains(e.target)) {
-        closeEntryModal();
-      }
+      if (e.target === e.currentTarget) closeEntryModal();
     });
+    // Close when clicking the primary link button inside
+    const continueBtn = el.entryModal.querySelector('.modal-actions .primary-btn');
+    if (continueBtn){
+      continueBtn.addEventListener('click', () => closeEntryModal());
+    }
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
