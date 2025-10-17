@@ -28,9 +28,6 @@ const el = {
   historyPanel: document.getElementById('historyPanel'),
   closeHistory: document.getElementById('closeHistory'),
   historyList: document.getElementById('historyList'),
-  entryModal: document.getElementById('entryModal'),
-  entryModalClose: document.getElementById('entryModalClose'),
-  entryModalDialog: document.querySelector('#entryModal .modal'),
 };
 
 function init() {
@@ -54,32 +51,7 @@ function init() {
   el.historyBtn.addEventListener('click', openHistory);
   el.closeHistory.addEventListener('click', closeHistory);
 
-  // Entry modal events
-  if (el.entryModal && el.entryModalClose){
-    // Show on load
-    openEntryModal();
-    // Close on X
-    el.entryModalClose.addEventListener('click', closeEntryModal);
-    // Prevent clicks inside modal from bubbling to overlay
-    if (el.entryModalDialog){
-      el.entryModalDialog.addEventListener('click', (e) => e.stopPropagation());
-    }
-    // Close when clicking on overlay background only
-    el.entryModal.addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) closeEntryModal();
-    });
-    // Close when clicking the primary link button inside
-    const continueBtn = el.entryModal.querySelector('.modal-actions .primary-btn');
-    if (continueBtn){
-      continueBtn.addEventListener('click', () => closeEntryModal());
-    }
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        if (!el.entryModal.classList.contains('hidden')) closeEntryModal();
-      }
-    });
-  }
+  // (entry modal removed)
 
   // Enforce M1 and hide action initially
   el.expiry.value = 'M1';
@@ -211,15 +183,7 @@ function closeHistory(){
   el.historyPanel.setAttribute('aria-hidden','true');
 }
 
-function openEntryModal(){
-  el.entryModal.classList.remove('hidden');
-  el.entryModal.setAttribute('aria-hidden','false');
-}
-
-function closeEntryModal(){
-  el.entryModal.classList.add('hidden');
-  el.entryModal.setAttribute('aria-hidden','true');
-}
+// (entry modal helpers removed)
 
 function pushHistory(item){
   const li = document.createElement('li');
