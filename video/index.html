@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vega Wins • Vídeo</title>
+    <meta name="description" content="Vega Wins - Vídeo de apresentação" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .video-wrapper{position:relative;width:min(980px, 94vw);aspect-ratio:16/9;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:#000}
+      .video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div class="logo">Vega <span>Wins</span></div>
+      </header>
+
+      <main class="content">
+        <div class="welcome">
+          <h1 class="title">Assista ao Vídeo</h1>
+          <p class="subtitle">Conheça mais antes de começar.</p>
+        </div>
+
+        <section class="controls" style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+          <div class="video-wrapper">
+            <!-- Substitua o ID do vídeo abaixo caso queira outro vídeo -->
+            <iframe src="https://www.youtube.com/embed/JRvRXDfbx5A" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </section>
+
+        <section class="actions">
+          <a class="primary-btn" href="../index.html" rel="noopener">Entrar no App</a>
+          <a class="primary-btn" href="https://auratrade.site/?ref=9507" target="_blank" rel="noopener">Corretora que uso</a>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>© Vega Wins</span>
+      </footer>
+    </div>
+  </body>
+</html>
