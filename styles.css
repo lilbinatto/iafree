@@ -114,13 +114,20 @@ body{
 .item-asset img{width:18px;height:18px;border-radius:50%;border:1px solid #2a2a2a}
 .item-meta{color:#999;font-size:12px}
 
+/* Entry Modal */
+.modal-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:1000;padding:16px}
+.modal{position:relative;width:min(520px, 96vw);background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:20px}
+.modal h2{margin:0 0 8px;font-size:20px}
+.modal p{margin:0 0 16px;color:var(--muted)}
+.modal-actions{display:flex;justify-content:flex-end}
+.modal-close{position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;justify-content:center;height:32px;width:32px;border-radius:8px;border:1px solid var(--border);background:#0f0f0f;color:#fff;cursor:pointer}
+.modal-close:hover{border-color:#2a2a2a;transform:translateY(-1px)}
+
 @media (max-width: 820px){
   .row{grid-template-columns:1fr;}
   .info-grid{grid-template-columns:1fr 1fr}
   .primary-btn{width:100%}
-  
 }
 @media (max-width: 420px){
   .info-grid{grid-template-columns:1fr}
-  
 }

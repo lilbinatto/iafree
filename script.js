@@ -28,6 +28,8 @@ const el = {
   historyPanel: document.getElementById('historyPanel'),
   closeHistory: document.getElementById('closeHistory'),
   historyList: document.getElementById('historyList'),
+  entryModal: document.getElementById('entryModal'),
+  entryModalClose: document.getElementById('entryModalClose'),
 };
 
 function init() {
@@ -50,6 +52,18 @@ function init() {
   el.signalBtn.addEventListener('click', handleGenerateSignal);
   el.historyBtn.addEventListener('click', openHistory);
   el.closeHistory.addEventListener('click', closeHistory);
+
+  // Entry modal events
+  if (el.entryModal && el.entryModalClose){
+    // Show on load
+    openEntryModal();
+    // Close on X
+    el.entryModalClose.addEventListener('click', closeEntryModal);
+    // Close when clicking outside the modal content
+    el.entryModal.addEventListener('click', (e) => {
+      if (e.target === el.entryModal) closeEntryModal();
+    });
+  }
 
   // Enforce M1 and hide action initially
   el.expiry.value = 'M1';
@@ -179,6 +193,16 @@ function openHistory(){
 function closeHistory(){
   el.historyPanel.classList.add('hidden');
   el.historyPanel.setAttribute('aria-hidden','true');
+}
+
+function openEntryModal(){
+  el.entryModal.classList.remove('hidden');
+  el.entryModal.setAttribute('aria-hidden','false');
+}
+
+function closeEntryModal(){
+  el.entryModal.classList.add('hidden');
+  el.entryModal.setAttribute('aria-hidden','true');
 }
 
 function pushHistory(item){
