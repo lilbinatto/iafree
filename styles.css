@@ -82,6 +82,7 @@ body{
   background:linear-gradient(180deg, var(--primary), #bd0000);
   color:#fff;font-weight:800;letter-spacing:.6px;font-size:16px;
   box-shadow:0 14px 32px rgba(225,0,0,0.35), 0 2px 0 #5f0000 inset;cursor:pointer;transition:all .2s ease;
+  text-decoration:none;display:inline-block;text-align:center;
 }
 .primary-btn:hover{transform:translateY(-1px);filter:brightness(1.03)}
 .primary-btn:disabled{

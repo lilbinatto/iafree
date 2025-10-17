@@ -28,6 +28,7 @@ const el = {
   historyPanel: document.getElementById('historyPanel'),
   closeHistory: document.getElementById('closeHistory'),
   historyList: document.getElementById('historyList'),
+  entryLinkBtn: document.getElementById('entryLinkBtn'),
 };
 
 function init() {
@@ -142,6 +143,10 @@ function handleGenerateSignal(){
 
     // Show the action and start a 15–30s countdown
     el.action.classList.remove('hidden');
+    // Reveal the entry link button only after a signal is generated
+    if (el.entryLinkBtn){
+      el.entryLinkBtn.classList.remove('hidden');
+    }
     const displaySeconds = 15 + Math.floor(Math.random() * 16); // 15..30 visible
     // Start a separate 2-minute cooldown for the button
     startCooldown(120);
