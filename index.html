@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vega Wins</title>
+    <meta name="description" content="Vega Wins - Robô de Sinais para Criptomoedas" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div class="logo">Vega <span>Wins</span></div>
+        <button id="historyBtn" class="icon-btn" title="Histórico">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 13a9 9 0 1 0 3-6.708" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M3 3v5h5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 7v6l4 2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </header>
+
+      <main class="content">
+        <div class="welcome">
+          <h1 class="title">Bem-vindo, Trader.</h1>
+          <p class="subtitle">Pronto para fazer dinheiro? Escolha um ativo e o tempo de expiração.</p>
+        </div>
+
+        <section class="controls">
+          <div class="row">
+            <div class="field">
+              <label for="asset">Ativo</label>
+              <div class="select">
+                <select id="asset"></select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="expiry">Tempo</label>
+              <div class="select">
+                <select id="expiry" disabled>
+                  <option value="M1">M1</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-grid">
+            <div class="info">
+              <span class="info-label">Início OP:</span>
+              <input id="startTime" type="time" />
+            </div>
+            <div class="info">
+              <span class="info-label">Ações:</span>
+              <span id="action" class="pill neutral hidden">Neutro</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="actions">
+          <button id="signalBtn" class="primary-btn">Gerar Sinal</button>
+        </section>
+
+        
+
+      </main>
+
+      <footer class="app-footer">
+        <span>© Vega Wins</span>
+      </footer>
+    </div>
+
+    <div id="historyPanel" class="history hidden" aria-hidden="true">
+      <div class="history-header">
+        <h3>Histórico de Sinais</h3>
+        <button id="closeHistory" class="icon-btn" aria-label="Fechar histórico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <ul id="historyList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

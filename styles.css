@@ -1,0 +1,126 @@
+:root{
+  --bg:#000000;
+  --card:#0b0b0b;
+  --border:#191919;
+  --text:#ffffff;
+  --muted:#bdbdbd;
+  --primary:#e10000;
+  --primary-600:#b00000;
+  --success:#18c58f;
+  --warning:#f5c84b;
+  --danger:#ff4d4d;
+  --shadow:0 10px 30px rgba(225,0,0,0.15), 0 6px 12px rgba(0,0,0,0.4);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:radial-gradient(1200px 1200px at 50% -20%, rgba(225,0,0,0.08), transparent 60%), var(--bg);
+  color:var(--text);
+  font-family:'Poppins','Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+}
+
+.app{min-height:100%;display:flex;flex-direction:column;}
+
+.app-header{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  padding:16px 20px;border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.85));
+  backdrop-filter:saturate(140%) blur(6px);
+}
+.logo{font-weight:800;letter-spacing:0.6px;text-transform:uppercase;font-size:20px}
+.logo span{color:var(--primary)}
+.icon-btn{
+  position:absolute;right:16px;
+  display:inline-flex;align-items:center;justify-content:center;
+  height:36px;width:36px;border-radius:10px;
+  border:1px solid var(--border);background:#0f0f0f;color:#fff;
+  transition:all .2s ease;box-shadow:none;
+}
+.icon-btn:hover{border-color:#2a2a2a;transform:translateY(-1px);box-shadow:0 6px 18px rgba(225,0,0,0.15)}
+
+.content{flex:1;display:flex;flex-direction:column;align-items:center;padding:32px 16px;}
+.welcome{text-align:center;margin-bottom:22px}
+.title{margin:0 0 6px;font-size:28px;font-weight:800}
+.subtitle{margin:0;color:var(--muted)}
+
+.controls{width:100%;max-width:980px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field label{display:block;margin:0 0 8px;color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.4px}
+.select{position:relative}
+.select select{
+  width:100%;appearance:none;background:#0f0f0f;color:#fff;border:1px solid #1a1a1a;border-radius:12px;
+  padding:12px 42px 12px 12px;font-weight:600;outline:none;transition:border-color .2s ease, box-shadow .2s ease;
+}
+.select:after{content:"▾";position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#888;pointer-events:none}
+.with-icon{display:flex;align-items:center;gap:10px}
+.with-icon img{height:22px;width:22px;border-radius:50%;border:1px solid #2a2a2a;background:#111}
+
+.ia-field{display:flex;align-items:flex-end}
+.ai-toggle{
+  height:44px;width:56px;border-radius:14px;border:1px solid #242424;background:#101010;color:#fff;display:flex;align-items:center;justify-content:center;
+  transition:all .2s ease;box-shadow:none;
+}
+.ai-toggle[aria-pressed="true"]{background:linear-gradient(180deg, #1a1a1a, #141414);border-color:var(--primary);box-shadow:0 0 0 4px rgba(225,0,0,0.1)}
+.ai-toggle:hover{transform:translateY(-1px);border-color:#2a2a2a}
+
+.info-grid{display:grid;grid-template-columns: auto auto; justify-content:center; gap:12px;margin-top:16px}
+.info{display:flex;align-items:center;gap:10px;background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;padding:12px}
+.info-label{color:var(--muted);font-weight:600;font-size:12px}
+.info input[type="number"], .info input[type="time"]{
+  background:transparent;border:none;color:#fff;outline:none;font-weight:700;width:100%;
+}
+.pill{padding:6px 10px;border-radius:999px;font-weight:800;letter-spacing:.5px;font-size:12px;border:1px solid #2a2a2a}
+.pill.neutral{color:#111;background:var(--warning)}
+.pill.buy{background:rgba(24,197,143,0.15);color:var(--success);border-color:#1e4d3e}
+.pill.sell{background:rgba(225,0,0,0.15);color:#ff6b6b;border-color:#4a1a1a}
+
+.actions{display:flex;flex-direction:column;align-items:center;gap:14px;margin:26px 0}
+.primary-btn{
+  min-width:260px;padding:16px 22px;border-radius:14px;border:1px solid #3a0000;
+  background:linear-gradient(180deg, var(--primary), #bd0000);
+  color:#fff;font-weight:800;letter-spacing:.6px;font-size:16px;
+  box-shadow:0 14px 32px rgba(225,0,0,0.35), 0 2px 0 #5f0000 inset;cursor:pointer;transition:all .2s ease;
+}
+.primary-btn:hover{transform:translateY(-1px);filter:brightness(1.03)}
+.primary-btn:disabled{
+  cursor:not-allowed;filter:saturate(85%);background:linear-gradient(180deg, #6a0000, #4a0000);
+  border-color:#380000;box-shadow:none;opacity:.85
+}
+
+/* removed widget styles */
+
+.broker{display:flex;flex-direction:column;align-items:center;gap:8px}
+.secondary-label{padding:8px 12px;border-radius:10px;border:1px solid #1a1a1a;background:#0f0f0f;color:#aaa;font-weight:700}
+
+.app-footer{border-top:1px solid var(--border);padding:16px;color:#777;text-align:center}
+
+.history{
+  position:fixed;inset:auto 16px 16px auto;right:16px;bottom:16px;width:min(380px, 92vw);
+  background:#0b0b0b;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);
+}
+.hidden{display:none}
+.history-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border)}
+.history-header h3{margin:0;font-size:14px;letter-spacing:.4px}
+#historyList{list-style:none;margin:0;padding:8px 12px;max-height:50vh;overflow:auto}
+#historyList li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 8px;border-bottom:1px dashed #1a1a1a}
+#historyList li:last-child{border-bottom:none}
+.badge{padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid #2a2a2a}
+.badge.buy{background:rgba(24,197,143,.15);color:var(--success)}
+.badge.sell{background:rgba(225,0,0,.15);color:#ff6b6b}
+.badge.neutral{background:rgba(245,200,75,.2);color:#d6b34a}
+.item-asset{display:flex;align-items:center;gap:8px}
+.item-asset img{width:18px;height:18px;border-radius:50%;border:1px solid #2a2a2a}
+.item-meta{color:#999;font-size:12px}
+
+@media (max-width: 820px){
+  .row{grid-template-columns:1fr;}
+  .info-grid{grid-template-columns:1fr 1fr}
+  .primary-btn{width:100%}
+  
+}
+@media (max-width: 420px){
+  .info-grid{grid-template-columns:1fr}
+  
+}
