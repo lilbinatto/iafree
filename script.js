@@ -30,6 +30,7 @@ const el = {
   historyList: document.getElementById('historyList'),
   entryModal: document.getElementById('entryModal'),
   entryModalClose: document.getElementById('entryModalClose'),
+  entryModalDialog: document.querySelector('#entryModal .modal'),
 };
 
 function init() {
@@ -61,7 +62,15 @@ function init() {
     el.entryModalClose.addEventListener('click', closeEntryModal);
     // Close when clicking outside the modal content
     el.entryModal.addEventListener('click', (e) => {
-      if (e.target === el.entryModal) closeEntryModal();
+      if (!el.entryModalDialog || !el.entryModalDialog.contains(e.target)) {
+        closeEntryModal();
+      }
+    });
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (!el.entryModal.classList.contains('hidden')) closeEntryModal();
+      }
     });
   }
 
