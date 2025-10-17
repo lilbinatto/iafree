@@ -116,10 +116,11 @@ body{
 
 /* Entry Modal */
 .modal-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:1000;padding:16px}
-.modal{position:relative;width:min(520px, 96vw);background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:20px}
+.modal{position:relative;width:min(520px, 96vw);background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:20px;text-align:center}
 .modal h2{margin:0 0 8px;font-size:20px}
 .modal p{margin:0 0 16px;color:var(--muted)}
-.modal-actions{display:flex;justify-content:flex-end}
+.modal-actions{display:flex;justify-content:center}
+.modal-actions .primary-btn{min-width:180px;padding:12px 16px;font-size:14px}
 .modal-close{position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;justify-content:center;height:32px;width:32px;border-radius:8px;border:1px solid var(--border);background:#0f0f0f;color:#fff;cursor:pointer}
 .modal-close:hover{border-color:#2a2a2a;transform:translateY(-1px)}
 
